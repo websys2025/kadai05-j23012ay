@@ -4,9 +4,9 @@
     <title>演習課題5-2：外部APIの呼び出しテスト</title>
 </head>
 <body>
-    <h1 id="msg">名言のAPI</h1>
+    <h1 id="msg">ランダム英単語API</h1>
     <form name="apiform"><p>
-        ランダム名言：<input type="text" name="form_data" value="random">
+        ランダムな英単語：<input type="text" name="form_data">
         <button type="button" id="btn1" onclick="some_api(this.form)">実行</button>
     </p></form>
     
@@ -14,11 +14,12 @@
     <script>
         async function some_api(myForm) {
             // ここにコードを書く
-            const endpoint = "https://meigen.doodlenote.net/api/json.php";
-            const aRes = await fetch(endpoint + "?c=1");
+            const aRes = await fetch('https://api.quotable.io/random');
             const data = await aRes.json();
-            const quote = data[0];
-            document.getElementById("result").innerHTML = "「" + quote.meigen + "」<br>— " + quote.auther;
+            const words = data.content.split(' ');
+            const randomWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById("result").innerHTML += 
+                `ランダム単語: ${randomWord}<br />`;
             document.apiform.reset();
         }
     </script>
