@@ -9,8 +9,14 @@
 * レスポンス指定された郵便番号に対応する住所がJSON形式で返される
 ### Q3-2. 各自で調査したAPIについて説明せよ。
 * APIの名称と参照URL
+* API名称: Quotable API
+* 参照URL: https://github.com/lukePeavey/quotable
 * エンドポイントと機能
+* https://api.quotable.io/random
+* ランダムな英語の名言の単語を取得
 * リクエストとレスポンスのフォーマット
+* リクエスト形式 GET https://api.quotable.io/random
+* レスポンス形式: JSON形式
 ### Q3-3. 感想
 * 今回の課題で苦労したこと
 * 演習を通して理解できたこと
